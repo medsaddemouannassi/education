@@ -1,0 +1,23 @@
+<div class="course" style="margin-bottom: 27px;">
+    <div class="course_image"><img [src]="courseDetails.image" alt=""></div>
+    <div class="course_body">
+        <h3 class="course_title"><a href="course.html">{{courseDetails.field}}</a></h3>
+        <div class="course_teacher">{{courseDetails.teacher}}</div>
+        <div class="course_text">
+            <p>{{courseDetails.description}}</p>
+        </div>
+    </div>
+    <div class="course_footer">
+        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
+            <div class="course_info">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <span>{{courseDetails.numberOfStudents}}</span>
+            </div>
+            <div class="course_info">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span>5 Ratings</span>
+            </div>
+            <div class="course_price ml-auto">{{courseDetails.price}}</div>
+        </div>
+    </div>
+</div>

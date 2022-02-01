@@ -1,0 +1,44 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>{{pageName}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="team">
+  <div class="team_background parallax-window" data-parallax="scroll" data-image-src="assets/images/team_background.jpg"
+    data-speed="0.8"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section_title_container text-center">
+          <h2 class="section_title">{{pageTitle}}</h2>
+          <div class="section_subtitle">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat,
+              sapien ultrices fermentum congue, quam velit venenatis sem</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row team_row">
+
+      <!-- Team Item -->
+      <div class="col-lg-3 col-md-6 team_col mx-auto" *ngIf="teacherId">
+        <app-teacher [teacher]="teacher"></app-teacher>
+      </div>
+      <div class="col-lg-3 col-md-6 team_col" *ngFor="let teacher of teachers">
+        <app-teacher [teacher]="teacher"></app-teacher>
+      </div>
+
+    </div>
+  </div>
+</div>

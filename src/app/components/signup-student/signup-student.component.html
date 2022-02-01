@@ -1,0 +1,74 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li> {{page}} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+
+<div class="contact">
+
+
+  <!-- Contact Info -->
+
+  <div class="contact_info_container">
+    <div class="container">
+      <div class="row">
+
+        <!-- Contact Form -->
+        <div class="col-lg-5" style="margin: auto;">
+          <div class="contact_form">
+            <div class="contact_info_title" style="text-align: center;"> {{title}} </div>
+            <form #signupStudentForm="ngForm" (ngSubmit)="signupOrEditStudent()" class="comment_form">
+              <div>
+                <input type="text" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" placeholder="First Name"
+                  required="required">
+                  <span style="color: red;">{{firstNameMsg}}</span>
+                </div>
+              <div>
+                <input type="text" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" placeholder="Last Name"
+                  required="required">
+                  <span style="color: red;">{{lastNameMsg}}</span>
+                </div>
+              <div>
+                <input type="email" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" placeholder="E-mail"
+                  required="required">
+                <span style="color: red;">{{emailMsg}}</span>
+              </div>
+              <div>
+                <input type="tel" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.phone" [ngModelOptions]="{standalone: true}" placeholder="Phone"
+                  required="required">
+                  <span style="color: red;">{{phoneMsg}}</span>
+              </div>
+              <div>
+                <input type="password" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" placeholder="Password"
+                  required="required">
+                  <span style="color: red;">{{passwordMsg}}</span>
+              </div>
+              <div *ngIf="!studentId">
+                <input type="password" class="comment_input" [readonly]="title == 'Student Info'" [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}"
+                  placeholder="Confirm Password" required="required">
+                  <span style="color: red;">{{confirmPasswordMsg}}</span>
+              </div>
+              <div>
+                <button type="submit" *ngIf="title != 'Student Info'" class="comment_button trans_200" style="width: 100%;">{{page}}</button>
+              </div>
+              <span *ngIf="!studentId" style="color: black;">You already have an account ? <a routerLink="/login">Log In</a></span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

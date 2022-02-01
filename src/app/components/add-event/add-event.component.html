@@ -1,0 +1,82 @@
+<div class="home">
+    <div class="breadcrumbs_container">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="breadcrumbs">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>{{form}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>			
+  </div>
+  
+  <!-- Contact -->
+  
+  <div class="contact">
+          
+  
+    <!-- Contact Info -->
+  
+    <div class="contact_info_container">
+      <div class="container">
+        <div class="row">
+  
+          <!-- Contact Form -->
+          <div class="col-lg-4" style="margin: auto;">
+            <div class="contact_form">
+                <div class="contact_info_title" style="text-align: center;">{{form}}</div>
+                <form [formGroup]="addEventForm" class="comment_form">
+                  <div>
+                    <input type="text" class="comment_input" [(ngModel)]="event.title" formControlName="title" placeholder="Event Name" required="required">
+                    <div *ngIf="addEventForm.controls['title'].invalid && (addEventForm.controls['title'].dirty || addEventForm.controls['title'].touched)">
+                      <div *ngIf="addEventForm.controls['title'].errors.required" style="color: red;">Please enter the event name</div>
+                      <div *ngIf="addEventForm.controls['title'].errors.minlength" style="color: red;">The event name must have at least 3 chars</div>
+                  </div>
+                  </div>
+                  <div>
+                    <input type="text" class="comment_input" [(ngModel)]="event.address" formControlName="address" placeholder="Address" required="required">
+                    <div *ngIf="addEventForm.controls['address'].invalid && (addEventForm.controls['address'].dirty || addEventForm.controls['address'].touched)">
+                      <div *ngIf="addEventForm.controls['address'].errors.required" style="color: red;">Please enter the event address</div>
+                      <div *ngIf="addEventForm.controls['address'].errors.minlength" style="color: red;">The address must have at least 17 chars</div>
+                  </div>
+                  </div>
+                  <div>
+                    <input type="date" class="comment_input" [(ngModel)]="event.date" formControlName="date" placeholder="Date" required="required">
+                    <div *ngIf="addEventForm.controls['date'].invalid && (addEventForm.controls['date'].dirty || addEventForm.controls['date'].touched)">
+                      <div *ngIf="addEventForm.controls['date'].errors.required" style="color: red;">Please enter the event date</div>
+                  </div>
+                  </div>
+                  <div>
+                    <input type="time" class="comment_input" [(ngModel)]="event.time" formControlName="time" placeholder="Time" required="required">
+                    <div *ngIf="addEventForm.controls['time'].invalid && (addEventForm.controls['time'].dirty || addEventForm.controls['time'].touched)">
+                      <div *ngIf="addEventForm.controls['time'].errors.required" style="color: red;">Please enter the event time</div>
+                  </div>
+                  </div>
+                  <div>
+                    <textarea class="comment_input" [(ngModel)]="event.description" formControlName="description" style="height: 100%;" rows="3" placeholder="Description" required="required"></textarea>
+                    <div *ngIf="addEventForm.controls['description'].invalid && (addEventForm.controls['description'].dirty || addEventForm.controls['description'].touched)">
+                      <div *ngIf="addEventForm.controls['description'].errors.required" style="color: red;">Please enter the event description</div>
+                      <div *ngIf="addEventForm.controls['description'].errors.minlength" style="color: red;">The event description must have at least 50 chars</div>
+                  </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <label style="font-size: medium; color: rgb(117, 117, 117); cursor: pointer;"><input type="file" hidden (change)="onImageSelected($event)"><i class="fas fa-images"></i> Add Image</label>
+                  </div>
+                  <div class="d-flex justify-content-center" *ngIf="imagePreview">
+                    <img [src]="imagePreview" width="270px" height="170px">
+                  </div>
+                  <div>
+                    <button type="submit" (click)="addOrEditEvent()" class="comment_button trans_200" style="width: 100%;">{{form}}</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

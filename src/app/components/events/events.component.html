@@ -1,0 +1,37 @@
+<div class="home" *ngIf="url != '/'">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>{{pageName}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>			
+</div><div class="events">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section_title_container text-center">
+          <h2 class="section_title">{{pageTitle}}</h2>
+          <div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="row events_row">
+
+      <!-- Event -->
+      <div class="col-lg-4 event_col mx-auto" *ngIf="eventId">
+        <app-event [eventDetails]="event"></app-event>
+      </div>
+      <div class="col-lg-4 event_col" *ngFor="let event of events">
+        <app-event [eventDetails]="event"></app-event>
+      </div>
+    </div>
+  </div>
+</div>

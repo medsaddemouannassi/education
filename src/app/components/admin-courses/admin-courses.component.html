@@ -1,0 +1,29 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Speciality</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Number of Students</th>
+            <th scope="col" style="text-align: center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <!-- <th scope="row">1</th> -->
+            <td>{{course.teacher}}</td>
+            <td>{{course.field}}</td>
+            <td>{{course.description}}</td>
+            <td>{{course.price}}</td>
+            <td>{{course.numberOfStudents}}</td>
+            <td style="text-align: center;">
+                <button type="button" (click)="goToDisplayOrEditOrDeleteCourse(course._id, 'display')" class="btn btn-info btn-sm"><i class="fas fa-tv"></i></button>
+                <button type="button" (click)="goToDisplayOrEditOrDeleteCourse(course._id, 'edit')" class="btn btn-secondary btn-sm ml-1 mr-1"><i
+                        class="fas fa-edit"></i></button>
+                <button type="button" (click)="goToDisplayOrEditOrDeleteCourse(course._id, 'delete')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

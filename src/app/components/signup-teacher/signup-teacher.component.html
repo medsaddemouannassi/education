@@ -1,0 +1,86 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>Register</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+
+<div class="contact">
+
+
+  <!-- Contact Info -->
+
+  <div class="contact_info_container">
+    <div class="container">
+      <div class="row">
+
+        <!-- Contact Form -->
+        <div class="col-lg-5" style="margin: auto;">
+          <div class="contact_form">
+            <div class="contact_info_title" style="text-align: center;">Register As A Teacher</div>
+            <form #signupTeacherForm="ngForm" (ngSubmit)="signupTeacher()" class="comment_form">
+              <div>
+                <select type="text" class="comment_input" [(ngModel)]="user.field" [ngModelOptions]="{standalone: true}" placeholder="First Name"
+                  required="required">
+                  <option value="undefined">Choose Field</option>
+                  <option>Field 1</option>
+                  <option>Field 2</option>
+                  <option>Field 3</option>
+                  <option>Field 4</option>
+                  <option>Field 5</option>
+                </select>
+              </div>
+              <div>
+                <input type="text" class="comment_input" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" placeholder="First Name"
+                  required="required">
+              </div>
+              <div>
+                <input type="text" class="comment_input" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" placeholder="Last Name"
+                  required="required">
+              </div>
+              <div>
+                <input type="email" class="comment_input" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" placeholder="E-mail"
+                  required="required">
+                  <span style="color: red;">{{emailExistMsg}}</span>
+              </div>
+              <div>
+                <input type="password" class="comment_input" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" placeholder="Password"
+                  required="required">
+              </div>
+              <div>
+                <input type="password" class="comment_input" [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}"
+                  placeholder="Confirm Password" required="required">
+              </div>
+              <div>
+                <input type="tel" class="comment_input" [(ngModel)]="user.phone" [ngModelOptions]="{standalone: true}" placeholder="Phone"
+                  required="required">
+              </div>
+              <div class="d-flex justify-content-center">
+                <label style="font-size: medium; color: rgb(117, 117, 117); cursor: pointer;"><input type="file" hidden (change)="onImageSelected($event)"><i class="fas fa-images"></i> Add Image</label>
+              </div>
+              <div class="d-flex justify-content-center" *ngIf="imagePreview">
+                <img [src]="imagePreview" width="170px" height="170px">
+              </div>
+              <div>
+                <button type="submit" class="comment_button trans_200" style="width: 100%;">Register</button>
+              </div>
+              <span style="color: black;">You already have an account ? <a routerLink="/login">Log In</a></span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

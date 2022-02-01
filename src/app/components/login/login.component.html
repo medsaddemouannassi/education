@@ -1,0 +1,58 @@
+<div class="home">
+  <div class="breadcrumbs_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="breadcrumbs">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>Log In</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>			
+</div>
+
+<!-- Contact -->
+
+<div class="contact">
+		
+
+  <!-- Contact Info -->
+
+  <div class="contact_info_container">
+    <div class="container">
+      <div class="row">
+
+        <!-- Contact Form -->
+        <div class="col-lg-5" style="margin: auto;">
+          <div class="contact_form">
+              <div class="contact_info_title" style="text-align: center;">Log In</div>
+              <form [formGroup]="loginForm" class="comment_form">
+                <div>
+                  <input type="email" class="comment_input" formControlName="email" placeholder="E-mail" required="required">
+                  <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                    <div *ngIf="loginForm.controls['email'].errors.required" style="color: red;">Please enter your e-mail</div>
+                    <div *ngIf="loginForm.controls['email'].errors.email" style="color: red;">E-mail invalid</div>
+                </div>
+                </div>
+                <div>
+                  <input type="password" class="comment_input" formControlName="password" placeholder="Password" required="required">
+                  <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                    <div *ngIf="loginForm.controls['password'].errors.required" style="color: red;">Please enter your password</div>
+                </div>
+                </div>
+                <div>
+                  <button type="submit" class="comment_button trans_200" (click)="login()" style="width: 100%;">Log In</button>
+                </div>
+                <span style="color: black;">You don't have an account ? Register as a <a routerLink="/signupStudent">student</a> or as a <a routerLink="/signupTeacher">teacher</a></span>
+                <p style="color: red;">{{errorMessage}}</p>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

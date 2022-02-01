@@ -1,0 +1,20 @@
+<div class="event event_left" style="margin-bottom: 27px;">
+    <div class="event_image"><img [src]="eventDetails.image" alt=""></div>
+    <div class="event_body d-flex flex-row align-items-start justify-content-start">
+      <div class="event_date">
+        <div class="d-flex flex-column align-items-center justify-content-center trans_200">
+          <div class="event_day trans_200">{{eventDetails.time}}</div>
+        </div>
+      </div>
+      <div class="event_content">
+        <div class="event_title"><a href="#">{{eventDetails.title}}</a></div>
+        <div class="event_info_container">
+          <div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>{{eventDetails.date}}</span></div>
+          <div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{eventDetails.address}}</span></div>
+          <div class="event_text">
+            <p>{{eventDetails.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
