@@ -5,6 +5,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(__dirname + "/dist/education"));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname + "/dist/education/index.html"));
+});
+
 // Security configuration
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
